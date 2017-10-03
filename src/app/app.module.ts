@@ -31,7 +31,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     MyOrdersComponent,
     AdminProductsComponent,
     LoginComponent,
-    AdminOrdersComponent,
+    AdminOrdersComponent
   ],
   imports: [
     BrowserModule,
