@@ -58,7 +58,7 @@ import { ProductService } from './product.service';
       { path: 'order-success', component: OrderSuccessComponent },
       { path: 'my/orders', component: MyOrdersComponent },
 
-      { path: 'admin/products', component: AdminOrdersComponent },
+      { path: 'admin/products/:id', component: AdminOrdersComponent },
       { path: 'admin/products/new', component: ProductFormComponent },
       { path: 'admin/orders', component: AdminOrdersComponent }
     ])
