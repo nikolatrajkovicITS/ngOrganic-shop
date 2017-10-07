@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CategoryService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getCategories() {
+  getCategories() { 
     return this.db.list('/categories', {
       query: {
-        orderByChild: 'name'                  // This means we want to firebase oreder our categories by this child propery 'name'
+        orderByChild: 'name'
       }
     });
   }
