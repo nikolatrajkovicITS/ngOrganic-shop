@@ -1,4 +1,5 @@
-import { AngularFireDatabase } from 'angularfire2/database';
+import { ShoppingCart } from './models/shopping-cart';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Product } from './models/product';
 
@@ -13,7 +14,7 @@ export class ShoppingCartService {
     });
   }
 
-  async getCart() {
+  async getCart(): Promise<FirebaseObjectObservable<ShoppingCart>> {
     let cartId = this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId);
   }
@@ -32,10 +33,19 @@ export class ShoppingCartService {
   }
 
   async addToCart(product: Product) {
+    this.updateItemQuantity(product, 1);
+  }
+
+  async removeFromCart(product: Product) {
+    this.updateItemQuantity(product, -1);
+  }
+
+  private async updateItemQuantity(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getItem(cartId, product.$key);
     item$.take(1).subscribe(item => {
       item$.update({ product: product, quantity: (item.quantity || 0) + 1 });
     });
   }
+
 }
