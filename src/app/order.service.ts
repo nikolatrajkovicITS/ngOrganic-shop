@@ -1,3 +1,4 @@
+import { equalTo } from 'ng2-validation/dist/equal-to';
 import { ShoppingCartService } from './shopping-cart.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
@@ -11,6 +12,19 @@ export class OrderService {
     let result = await this.db.list('/orders').push(order);
     this.shoppingCartService.clearCart();
     return result;
+  }
+
+  getOrders() {
+    return this.db.list('/orders');
+  }
+
+  getOrdersByUser() {
+    return this.db.list('/orders', {
+      query: {
+        orderByChild: 'userId',
+        equalTo: userId
+      }
+    });
   }
 
 }
