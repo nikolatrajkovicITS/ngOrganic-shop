@@ -1,7 +1,7 @@
-import { ShoppingCart } from './models/shopping-cart';
+import { ShoppingCart } from '../models/shopping-cart';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
-import { Product } from './models/product';
+import { Product } from '../models/product';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';

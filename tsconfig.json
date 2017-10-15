@@ -15,6 +15,12 @@
     "lib": [
       "es2016",
       "dom"
-    ]
+    ],
+    "baseUrl": "./src",
+    "path": {
+      "shared/*": [                 // This is a pattern which tell to TS compler "if the path starts with shared replce with 'this path'
+        "app/shared/*"
+      ]
+    }
   }
 }
