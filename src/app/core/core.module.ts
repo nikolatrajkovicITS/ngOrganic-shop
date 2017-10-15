@@ -1,14 +1,14 @@
-
-import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LoginComponent } from 'app/login/login.component';
-import { HomeComponent } from 'app/core/components/home/home.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from 'app/core/components/home/home.component';
+import { LoginComponent } from 'app/login/login.component';
+
+import { SharedModule } from '../shared/shared.module';
+import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild([])
   ],
   declarations: [
